@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
+import student1 from '../../assets/student-syari.webp';
+import privateTutoring from '../../assets/private-tutoring.webp';
+import tutor1 from '../../assets/tutor-1.webp';
 
 interface HeroCarouselProps {
   onRegisterClick: () => void;
@@ -8,22 +11,28 @@ interface HeroCarouselProps {
 
 const slides = [
   {
-    title: 'Bimbingan Belajar Privat Terbaik',
-    subtitle: 'Tingkatkan prestasi akademik anak Anda dengan tutor profesional yang berpengalaman',
+    title: 'Pengalaman belajar yang lebih efektif',
+    subtitle: 'Setiap sesi dirancang interaktif dengan pendampingan tutor agar anak benar-benar memahami materi, bukan sekedar hafal',
     gradient: 'from-blue-600 to-purple-600',
-    bgColor: 'bg-blue-50'
+    bgColor: 'bg-blue-50',
+    image: student1,
+    alt: 'Siswa SD Bahagia'
   },
   {
-    title: 'Pembelajaran 1-on-1 yang Efektif',
-    subtitle: 'Setiap siswa mendapat perhatian penuh dengan metode pembelajaran yang disesuaikan',
+    title: 'Pembelajaran 1\u2011on\u20111 yang Efektif',
+    subtitle: 'Kidemy bantu anak belajar lebih fokus dengan tutor pilihan, dan metode belajar yang interaktif yang disesuaikan dengan kebutuhan setiap anak',
     gradient: 'from-green-600 to-teal-600',
-    bgColor: 'bg-green-50'
+    bgColor: 'bg-green-50',
+    image: privateTutoring,
+    alt: 'Siswa SMP Belajar Privat dengan Tutor Muslimah'
   },
   {
-    title: 'Jadwal Fleksibel, Belajar Kapan Saja',
-    subtitle: 'Tentukan jadwal belajar sesuai kenyamanan Anda. Tersedia dari pagi hingga malam',
+    title: 'Belajar lebih nyaman dengan jadwal fleksibel',
+    subtitle: 'Waktu belajar dapat disesuaikan dengan kebutuhan anak & keluarga, dari pagi hingga malam hari',
     gradient: 'from-orange-600 to-pink-600',
-    bgColor: 'bg-orange-50'
+    bgColor: 'bg-orange-50',
+    image: tutor1,
+    alt: 'Tutor Profesional'
   }
 ];
 
@@ -66,27 +75,36 @@ export function HeroCarousel({ onRegisterClick }: HeroCarouselProps) {
           >
             <div className={`h-full ${slide.bgColor}`}>
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-                {/* MOBILE: Single column, scrollable */}
-                <div className="block lg:hidden py-20">
-                  <div className="space-y-8">
-                    {/* Header */}
-                    <div className="space-y-4 pt-8">
-                      <h1 className="text-3xl font-bold text-gray-900 leading-tight">
+                {/* MOBILE: Full image with bottom text overlay */}
+                <div className="block lg:hidden h-full relative">
+                  {/* Full Background Image for Mobile */}
+                  <div className="absolute inset-0 z-0 overflow-hidden">
+                    <img
+                      src={slide.image}
+                      alt={slide.alt}
+                      className="w-full h-full object-cover object-top"
+                    />
+                    {/* Extra Deep Gradient - Starts higher but much softer fade to ensure readability at the bottom */}
+                    <div className="absolute inset-x-0 bottom-0 h-4/5 bg-gradient-to-t from-white via-white/95 via-white/60 to-transparent"></div>
+                  </div>
+
+                  {/* Content Overlay - Pushed further down with more aggressive gradient */}
+                  <div className="relative z-10 h-full flex flex-col justify-end pb-12 px-6 text-center">
+                    <div className="space-y-3">
+                      <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight drop-shadow-sm">
                         {slide.title}
                       </h1>
-                      <p className="text-base text-gray-600">
+                      <p className="text-sm sm:text-base text-gray-800 font-medium">
                         {slide.subtitle}
                       </p>
+                      <Button
+                        size="lg"
+                        className={`w-full bg-gradient-to-r ${slide.gradient} text-white shadow-xl active:scale-[0.98] transition-all py-5 text-base font-semibold rounded-xl mt-3`}
+                        onClick={onRegisterClick}
+                      >
+                        Daftar Sekarang
+                      </Button>
                     </div>
-
-                    {/* CTA Button */}
-                    <Button
-                      size="lg"
-                      className={`w-full bg-gradient-to-r ${slide.gradient} text-white hover:opacity-90 transition-opacity`}
-                      onClick={onRegisterClick}
-                    >
-                      Daftar Sekarang
-                    </Button>
                   </div>
                 </div>
                 {/* DESKTOP: Two column layout (keep existing) */}
@@ -112,56 +130,22 @@ export function HeroCarousel({ onRegisterClick }: HeroCarouselProps) {
                     </div>
                     <div className="flex flex-wrap gap-8 pt-4">
                       <div>
-
                       </div>
                     </div>
                   </div>
 
                   {/* Right Illustration */}
-                  <div className="relative flex items-center justify-center">
-                    <div className="relative w-full max-w-lg">
-                      <div className={`absolute -top-4 -left-4 w-72 h-72 bg-gradient-to-r ${slide.gradient} rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob`}></div>
-                      <div className={`absolute -bottom-8 -right-4 w-72 h-72 bg-gradient-to-r ${slide.gradient} rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000`}></div>
-                      <div className={`absolute -bottom-8 left-20 w-72 h-72 bg-gradient-to-r ${slide.gradient} rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000`}></div>
+                  <div className="relative flex items-center justify-center h-full">
+                    <div className="relative w-full max-w-xl aspect-square flex items-center justify-center">
+                      <div className={`absolute top-0 right-0 w-96 h-96 bg-gradient-to-r ${slide.gradient} rounded-full filter blur-[64px] opacity-20 animate-blob`}></div>
+                      <div className={`absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-r ${slide.gradient} rounded-full filter blur-[64px] opacity-20 animate-blob animation-delay-2000`}></div>
 
-                      {/* Card */}
-                      <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
-                        <div className="space-y-6">
-                          <div className="flex items-center gap-4">
-                            <div className={`w-14 h-14 bg-gradient-to-r ${slide.gradient} rounded-xl flex items-center justify-center`}>
-                              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                              </svg>
-                            </div>
-                            <div>
-                              <div className="font-semibold text-gray-900 text-lg">Sesi Pembelajaran</div>
-                              <div className="text-sm text-gray-500">Kelas berlangsung</div>
-                            </div>
-                          </div>
-                          <div className="space-y-3">
-                            <div className="bg-gray-50 rounded-lg p-4">
-                              <div className="text-sm text-gray-600 mb-2">Progress Pembelajaran</div>
-                              <div className="w-full bg-gray-200 rounded-full h-3">
-                                <div className={`bg-gradient-to-r ${slide.gradient} h-3 rounded-full transition-all duration-1000`} style={{ width: '75%' }}></div>
-                              </div>
-                            </div>
-                            <div className="grid grid-cols-3 gap-3">
-                              <div className="bg-gray-50 rounded-lg p-3 text-center">
-                                <div className={`text-xl font-bold bg-gradient-to-r ${slide.gradient} bg-clip-text text-transparent`}>24</div>
-                                <div className="text-xs text-gray-600">Sesi</div>
-                              </div>
-                              <div className="bg-gray-50 rounded-lg p-3 text-center">
-                                <div className={`text-xl font-bold bg-gradient-to-r ${slide.gradient} bg-clip-text text-transparent`}>A</div>
-                                <div className="text-xs text-gray-600">Nilai</div>
-                              </div>
-                              <div className="bg-gray-50 rounded-lg p-3 text-center">
-                                <div className={`text-xl font-bold bg-gradient-to-r ${slide.gradient} bg-clip-text text-transparent`}>95%</div>
-                                <div className="text-xs text-gray-600">Score</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      {/* Image */}
+                      <img
+                        src={slide.image}
+                        alt={slide.alt}
+                        className="relative z-20 w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700"
+                      />
                     </div>
                   </div>
                 </div>
@@ -191,8 +175,8 @@ export function HeroCarousel({ onRegisterClick }: HeroCarouselProps) {
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all ${index === currentSlide
-                ? 'w-6 lg:w-8 h-2 lg:h-3 bg-white'
-                : 'w-2 lg:w-3 h-2 lg:h-3 bg-white/50 hover:bg-white/75'
+                ? 'w-6 lg:w-8 h-2 lg:h-3 bg-gray-800'
+                : 'w-2 lg:w-3 h-2 lg:h-3 bg-gray-400 hover:bg-gray-600'
                 } rounded-full`}
             />
           ))}

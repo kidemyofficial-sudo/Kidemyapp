@@ -8,4 +8,7 @@
   Run `npm i` to install the dependencies.
 
   Run `npm run dev` to start the development server.
+
+  ## Dokumentasi
+  - [Panduan Perbaikan Favicon](file:///c:/Users/HP/Documents/kidemyweb/DOCS_FAVICON_FIX.md) - Panduan cara mengatasi logo/favicon yang tampak kecil.
   

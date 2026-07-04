@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import logo from '../../assets/logo-kidemy.webp';
 import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
@@ -10,6 +10,7 @@ interface NavbarProps {
 export function Navbar({ onRegisterClick }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +24,7 @@ export function Navbar({ onRegisterClick }: NavbarProps) {
   const navLinks = [
     { name: 'Beranda', href: '#home' },
     { name: 'Program', href: '#program' },
-    { name: 'Cara Kerja', href: '#cara-kerja' },
+    { name: 'Alur Belajar', href: '#alur-belajar' },
     { name: 'Testimoni', href: '#testimoni' },
     { name: 'Tentang Kami', href: '#tentang' },
   ];
@@ -32,13 +33,13 @@ export function Navbar({ onRegisterClick }: NavbarProps) {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (isMobileMenuOpen && !target.closest('nav')) {
+      if (isMobileMenuOpen && navRef.current && !navRef.current.contains(target)) {
         setIsMobileMenuOpen(false);
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isMobileMenuOpen]);
 
   // Prevent body scroll when mobile menu is open
@@ -57,6 +58,7 @@ export function Navbar({ onRegisterClick }: NavbarProps) {
   return (
     <>
       <nav
+        ref={navRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-lg'
           : 'bg-white/80 backdrop-blur-sm'
@@ -70,7 +72,7 @@ export function Navbar({ onRegisterClick }: NavbarProps) {
                 <img
                   src={logo}
                   alt="Kidemy Logo"
-                  className="h-26 sm:h-30 w-auto hover:scale-105 transition-transform duration-200"
+                  className="h-8 sm:h-10 w-auto hover:scale-105 transition-transform duration-200"
                 />
               </a>
             </div>
@@ -101,7 +103,10 @@ export function Navbar({ onRegisterClick }: NavbarProps) {
 
             {/* Mobile Menu Button */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsMobileMenuOpen(prev => !prev);
+              }}
               className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors relative z-50"
               aria-label={isMobileMenuOpen ? "Tutup menu" : "Buka menu"}
             >

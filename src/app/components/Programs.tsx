@@ -10,16 +10,16 @@ interface ProgramsProps {
 const programs = [
   {
     id: 1,
-    name: 'SD (Kelas 1-6)',
-    price: 'Rp 150.000',
+    name: 'SD (Kelas 1-5)',
+    price: 'Rp 55.000',
     period: 'per sesi',
-    description: 'Cocok untuk siswa Sekolah Dasar',
     features: [
-      'Mata pelajaran: Matematika, IPA, Bahasa Indonesia, Bahasa Inggris',
+      'Metode belajar interaktif',
       'Durasi 90 menit per sesi',
-      'Materi sesuai kurikulum',
-      'Laporan perkembangan belajar',
-      'Akses bank soal'
+      'Bebas atur jadwal & materi belajar',
+      'Laporan belajar rutin',
+      'Bebas konsultasi PR dengan guru',
+      'Strategi belajar untuk ujian'
     ],
     popular: false,
     gradient: 'from-blue-500 to-blue-600',
@@ -27,73 +27,97 @@ const programs = [
   },
   {
     id: 2,
-    name: 'SMP (Kelas 7-9)',
-    price: 'Rp 175.000',
+    name: 'SD (Kelas 6)',
+    price: 'Rp 70.000',
     period: 'per sesi',
-    description: 'Ideal untuk siswa SMP',
     features: [
-      'Semua mata pelajaran',
+      'Fokus persiapan ujian sekolah & AKM',
       'Durasi 90 menit per sesi',
-      'Persiapan ujian sekolah',
       'Latihan soal intensif',
-      'Konsultasi akademik',
-      'Video pembelajaran'
+      'Bimbingan transisi ke SMP',
+      'Laporan perkembangan berkala'
     ],
-    popular: true,
+    popular: false,
+    gradient: 'from-cyan-500 to-cyan-600',
+    icon: '🏫'
+  },
+  {
+    id: 3,
+    name: 'SMP (Kelas 7-8)',
+    price: 'Rp 75.000',
+    period: 'per sesi',
+    features: [
+      'Metode belajar interaktif',
+      'Durasi 90 menit per sesi',
+      'Bebas atur jadwal & materi belajar',
+      'Strategi belajar sesuai kebutuhan',
+      'Pendampingan penuh',
+      'Laporan belajar rutin'
+    ],
+    popular: false,
     gradient: 'from-purple-500 to-purple-600',
     icon: '📚'
   },
   {
-    id: 3,
-    name: 'SMA (Kelas 10-12)',
-    price: 'Rp 200.000',
+    id: 4,
+    name: 'SMP (Kelas 9)',
+    price: 'Rp 90.000',
     period: 'per sesi',
-    description: 'Persiapan UTBK & UN',
     features: [
-      'Semua mata pelajaran jurusan',
-      'Durasi 120 menit per sesi',
-      'Fokus UTBK-SNBT',
-      'Try out berkala',
-      'Strategi menjawab soal',
-      'Bimbingan PTN',
-      'Konsultasi jurusan'
+      'Fokus ujian kelulusan & ujian sekolah',
+      'Durasi 90 menit per sesi',
+      'Try out berkala & simulasi ujian',
+      'Latihan soal intensif',
+      'Bimbingan pemilihan sekolah lanjutan'
     ],
-    popular: false,
-    gradient: 'from-green-500 to-green-600',
+    popular: true,
+    gradient: 'from-indigo-500 to-indigo-600',
     icon: '🎓'
   },
   {
-    id: 4,
-    name: 'Mahasiswa',
-    price: 'Rp 225.000',
+    id: 5,
+    name: 'SMA (Kelas 10-11)',
+    price: 'Rp 90.000',
     period: 'per sesi',
-    description: 'Untuk mahasiswa perguruan tinggi',
     features: [
-      'Mata kuliah umum dan jurusan',
-      'Durasi 120 menit per sesi',
-      'Bimbingan tugas akhir/skripsi',
-      'Konsultasi penelitian',
-      'Analisis data statistik',
-      'Review jurnal ilmiah'
+      'Pelajaran jurusan: IPA / IPS / Umum',
+      'Durasi 90 menit per sesi',
+      'Pemantapan konsep dasar UTBK',
+      'Strategi belajar efektif',
+      'Konsultasi jurusan dasar'
     ],
     popular: false,
-    gradient: 'from-orange-500 to-orange-600',
-    icon: '👨‍🎓'
+    gradient: 'from-green-500 to-green-600',
+    icon: '✏️'
   },
   {
-    id: 5,
-    name: 'Coding & Programming',
-    price: 'Rp 250.000',
+    id: 6,
+    name: 'SMA (Kelas 12)',
+    price: 'Rp 105.000',
     period: 'per sesi',
-    description: 'Kursus pemrograman untuk semua usia',
     features: [
-      'Python, JavaScript, HTML/CSS',
-      'Durasi 120 menit per sesi',
-      'Project-based learning',
-      'Portfolio development',
-      'Web & mobile development',
-      'Sertifikat kelulusan',
-      'Mentoring karir IT'
+      'Strategi Persiapan UTBK / SNBT / TKA',
+      'Durasi 90 menit per sesi',
+      'Bebas atur jadwal & materi belajar',
+      'Laporan belajar rutin',
+      'Bebas konsultasi karir dengan guru',
+      'Simulasi ujian'
+    ],
+    popular: false,
+    gradient: 'from-teal-500 to-teal-600',
+    icon: '🏫'
+  },
+  {
+    id: 7,
+    name: 'Keahlian Khusus Programming / MTK',
+    price: 'Rp 200.000',
+    period: 'per sesi',
+    features: [
+      'Python, JavaScript, Web/Mobile Development',
+      'Matematika Olimpiade, Aljabar Lanjut, Kalkulus',
+      'Durasi 90 menit per sesi',
+      'Project-based learning & portfolio development',
+      'Mentoring langsung dari tutor berpengalaman'
     ],
     popular: false,
     gradient: 'from-pink-500 to-pink-600',
@@ -173,7 +197,7 @@ export function Programs({ onRegisterClick }: ProgramsProps) {
             Program Bimbingan Belajar
           </h2>
           <p className="text-lg text-gray-600">
-            Pilih program yang sesuai dengan jenjang pendidikan Anda
+            Pilih program yang sesuai dengan jenjang pendidikan anda
           </p>
         </div>
 
@@ -218,14 +242,12 @@ export function Programs({ onRegisterClick }: ProgramsProps) {
                           <div className={`inline-block bg-gradient-to-r ${program.gradient} text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-3`}>
                             {program.name}
                           </div>
-                          <p className="text-gray-600 text-center text-sm mb-4 line-clamp-2 min-h-[2.5rem]">
-                            {program.description}
-                          </p>
+
                           <div className="space-y-1 text-center w-full">
-                            <div className={`text-2xl font-bold bg-gradient-to-r ${program.gradient} bg-clip-text text-transparent`}>
+                            <div className={`text-lg sm:text-xl font-bold bg-gradient-to-r ${program.gradient} bg-clip-text text-transparent`}>
                               {program.price}
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className={`text-lg sm:text-xl font-bold bg-gradient-to-r ${program.gradient} bg-clip-text text-transparent`}>
                               {program.period}
                             </div>
                           </div>
@@ -234,7 +256,7 @@ export function Programs({ onRegisterClick }: ProgramsProps) {
 
                       <CardContent className="pt-0 flex-grow flex flex-col">
                         <div className="border-t border-gray-100 pt-4 flex-grow">
-                          <h4 className="text-sm font-semibold text-gray-900 mb-3">Fitur Unggulan:</h4>
+                          <h4 className="text-sm font-semibold text-gray-900 mb-3">Deskripsi Paket :</h4>
                           <ul className="space-y-2">
                             {program.features.map((feature, fIndex) => (
                               <li key={fIndex} className="flex items-start gap-2">
@@ -338,14 +360,12 @@ export function Programs({ onRegisterClick }: ProgramsProps) {
                           <div className={`inline-block bg-gradient-to-r ${program.gradient} text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-3`}>
                             {program.name}
                           </div>
-                          <p className="text-gray-600 text-center text-sm mb-4 line-clamp-2">
-                            {program.description}
-                          </p>
+
                           <div className="space-y-1 text-center w-full">
-                            <div className={`text-2xl font-bold bg-gradient-to-r ${program.gradient} bg-clip-text text-transparent`}>
+                            <div className={`text-lg sm:text-xl font-bold bg-gradient-to-r ${program.gradient} bg-clip-text text-transparent`}>
                               {program.price}
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className={`text-lg sm:text-xl font-bold bg-gradient-to-r ${program.gradient} bg-clip-text text-transparent`}>
                               {program.period}
                             </div>
                           </div>
@@ -354,7 +374,7 @@ export function Programs({ onRegisterClick }: ProgramsProps) {
 
                       <CardContent className="pt-0 flex-grow flex flex-col">
                         <div className="border-t border-gray-100 pt-4 flex-grow">
-                          <h4 className="text-sm font-semibold text-gray-900 mb-3">Fitur Unggulan:</h4>
+                          <h4 className="text-sm font-semibold text-gray-900 mb-3">Deskripsi Paket :</h4>
                           <ul className="space-y-2">
                             {program.features.map((feature, fIndex) => (
                               <li key={fIndex} className="flex items-start gap-2">

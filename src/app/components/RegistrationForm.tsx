@@ -198,9 +198,12 @@ Terima kasih!`;
                     <SelectValue placeholder="Pilih jenjang pendidikan" />
                   </SelectTrigger>
                   <SelectContent>
+                    <SelectItem value="Calistung">Calistung (Pra-SD)</SelectItem>
                     <SelectItem value="SD">SD (Sekolah Dasar)</SelectItem>
                     <SelectItem value="SMP">SMP (Sekolah Menengah Pertama)</SelectItem>
                     <SelectItem value="SMA">SMA (Sekolah Menengah Atas)</SelectItem>
+                    <SelectItem value="Mahasiswa">Mahasiswa (Perguruan Tinggi)</SelectItem>
+                    <SelectItem value="Pekerja">Pekerja/Umum</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -269,7 +272,7 @@ Terima kasih!`;
               </div>
               <div className="space-y-3">
                 <Label htmlFor="source" className="text-base">
-                  10. Dari mana Anda mengetahui Kidemy? <span className="text-red-500">*</span>
+                  10. Dari mana anda mengetahui Kidemy? <span className="text-red-500">*</span>
                 </Label>
                 <Select value={formData.source} onValueChange={(value) => updateFormData('source', value)}>
                   <SelectTrigger className="text-base">

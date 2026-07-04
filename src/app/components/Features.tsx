@@ -5,22 +5,22 @@ const features = [
   {
     icon: Users,
     title: 'Pembelajaran 1-on-1',
-    description: 'Setiap siswa mendapat perhatian penuh dari tutor profesional dengan metode pembelajaran yang disesuaikan.'
+    description: 'Anak belajar langsung dengan tutor tanpa distraksi, sehingga lebih fokus dan cepat paham.'
   },
   {
     icon: Clock,
     title: 'Jadwal Fleksibel',
-    description: 'Tentukan jadwal belajar sesuai dengan kenyamanan Anda. Tersedia dari pagi hingga malam hari.'
+    description: 'Waktu belajar bisa disesuaikan dengan aktivitas sekolah dan keluarga, tanpa mengganggu rutinitas anak.'
   },
   {
     icon: GraduationCap,
     title: 'Tutor Berkualitas',
-    description: 'Tutor berpengalaman dengan latar belakang pendidikan terbaik dan telah tersertifikasi.'
+    description: 'Tutor diseleksi dan dibekali metode mengajar yang ramah anak serta mudah dipahami.'
   },
   {
     icon: Award,
-    title: 'Materi Lengkap',
-    description: 'Akses ke bank soal, video pembelajaran, dan materi pendukung untuk semua tingkat pendidikan.'
+    title: 'Materi lengkap & terarah',
+    description: 'Materi mengikuti kurikulum sekolah dan disesuaikan dengan kemampuan anak.'
   }
 ];
 
@@ -30,10 +30,10 @@ export function Features() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Mengapa Memilih Kidemy?
+            Bukan sekedar les, ini alasan orang tua memilih Kidemy
           </h2>
           <p className="text-lg text-gray-600">
-            Platform bimbingan belajar online yang dirancang khusus untuk memaksimalkan potensi belajar anak Anda
+            Karena Kidemy percaya bahwa setiap anak itu unik, Kidemy mendampingi dengan metode belajar yang paling sesuai.
           </p>
         </div>
 
